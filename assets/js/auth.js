@@ -1,4 +1,4 @@
-(function() {
+(function () {
   const API_URL = 'https://api.dariblue.dev';
   const SESSION_KEY = 'meditime_session';
 
@@ -129,7 +129,7 @@
       }
 
       // console.log('Registrando usuario:', userData);
-      
+
       let response;
       try {
         response = await fetch(`${API_URL}/Usuarios/registro`, {
@@ -170,7 +170,7 @@
   // Función de logout
   function logout() {
     clearSession(); // Elimina la sesión del almacenamiento local
-    window.location.href = '/pages/login'; // Redirige al usuario a la página de inicio de sesión
+    window.location.href = '/pages/login.html'; // Redirige al usuario a la página de inicio de sesión
   }
 
   // Función para verificar si el usuario está autenticado
@@ -225,7 +225,7 @@
     if (loginForm) {
       loginForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         const remember = document.getElementById('remember')?.checked || false;
@@ -238,7 +238,7 @@
 
         try {
           const user = await login(email, password);
-          
+
           // Verificar que la sesión se guardó correctamente
           const session = getSession();
 
@@ -281,15 +281,15 @@
     if (registerForm) {
       registerForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
         // Evitar envíos duplicados
         if (isSubmitting) {
           // console.log('Ya se está procesando un registro...');
           return;
         }
-        
+
         isSubmitting = true;
-        
+
         const nombre = document.getElementById('nombre').value;
         const apellidos = document.getElementById('apellidos').value;
         const email = document.getElementById('email').value;
@@ -345,12 +345,12 @@
           });
 
           // console.log('Registro exitoso:', user);
-          
+
           if (successElement) {
             successElement.textContent = 'Registro exitoso. Redirigiendo...';
             successElement.style.display = 'block';
           }
-          
+
           // Redirigir al usuario a la página de login después de 2 segundos
           setTimeout(() => {
             window.location.href = '/pages/login';

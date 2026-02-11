@@ -72,6 +72,27 @@ img {
   margin-bottom: 2rem;
 }
 
+/* Encabezado de página (compartido) */
+.page-header {
+  background-color: #f0f7ff;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.page-header h1,
+.page-header h2 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.page-header p {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
 /* Botones */
 .btn {
   display: inline-block;
@@ -142,6 +163,10 @@ img {
   display: flex;
   list-style: none;
   gap: 30px;
+  margin: 0;
+  /* Override Bootstrap */
+  padding: 0;
+  /* Override Bootstrap */
 }
 
 .nav-links a {
@@ -151,6 +176,7 @@ img {
   padding: 5px 0;
   position: relative;
   text-decoration: none;
+  /* Override Bootstrap */
 }
 
 .nav-links a:hover,

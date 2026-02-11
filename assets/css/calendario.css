@@ -1,24 +1,6 @@
 /* Estilos específicos para la página de calendario */
 
-/* Encabezado de página */
-.page-header {
-  background-color: #f0f7ff;
-  padding: 40px 0;
-  text-align: center;
-}
-
-.page-header h2 {
-  font-size: 2.2rem;
-  margin-bottom: 10px;
-  color: var(--text-color);
-}
-
-.page-header p {
-  font-size: 1.2rem;
-  color: var(--text-light);
-  max-width: 700px;
-  margin: 0 auto;
-}
+/* Encabezado de página movido a styles.css */
 
 /* Sección de calendario */
 .calendario-section {

@@ -15,10 +15,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   // console.log('DOM cargado');
 
   const session = window.auth.getCurrentUser();
-  if (!session) {
-    window.location.href = "/pages/login";
-    return;
-  }
+  // if (!session) {
+  //   window.location.href = "/pages/login";
+  //   return;
+  // }
 
   // Inicializar modales
   const addMedModal = document.getElementById("med-modal");
@@ -415,19 +415,19 @@ document.addEventListener("DOMContentLoaded", async () => {
   function handleConfirmDelete() {
     if (recordatorioToDelete) {
       deleteMedicamento(recordatorioToDelete)
-      .then(() => {
-        console.log("Medicamento eliminado con éxito");
-        recordatorioToDelete = null;
-        closeModalManually("confirm-modal");
-        loadMedicamentos().then(() => {
-          renderMedicamentos(); // recargar medicamentos después de eliminar
-          renderMiniCalendario();
-          updateEstadisticas();
+        .then(() => {
+          console.log("Medicamento eliminado con éxito");
+          recordatorioToDelete = null;
+          closeModalManually("confirm-modal");
+          loadMedicamentos().then(() => {
+            renderMedicamentos(); // recargar medicamentos después de eliminar
+            renderMiniCalendario();
+            updateEstadisticas();
+          });
+        })
+        .catch((error) => {
+          console.error("Error al eliminar el medicamento:", error);
         });
-      })
-      .catch((error) => {
-        console.error("Error al eliminar el medicamento:", error);
-      });
 
       // confirmModal.close();
     }
@@ -492,21 +492,18 @@ document.addEventListener("DOMContentLoaded", async () => {
       <div class="recordatorio-info">
         <h4>${tipoIcono} ${medicamento.nombre}</h4>
         <p>${medicamento.dosis}</p>
-        ${
-          medicamento.instrucciones
-            ? `<p class="instrucciones">${medicamento.instrucciones}</p>`
-            : ""
-        }
+        ${medicamento.instrucciones
+        ? `<p class="instrucciones">${medicamento.instrucciones}</p>`
+        : ""
+      }
       </div>
       <div class="recordatorio-acciones">
-        <button class="btn-accion btn-completar ${
-          medicamento.estado === "completado" ? "completado" : ""
-        }" 
-                aria-label="Marcar como ${
-                  medicamento.estado === "completado"
-                    ? "pendiente"
-                    : "completado"
-                }">
+        <button class="btn-accion btn-completar ${medicamento.estado === "completado" ? "completado" : ""
+      }" 
+                aria-label="Marcar como ${medicamento.estado === "completado"
+        ? "pendiente"
+        : "completado"
+      }">
           <i class="fas fa-check"></i>
         </button>
         <button class="btn-accion btn-editar" aria-label="Editar recordatorio">

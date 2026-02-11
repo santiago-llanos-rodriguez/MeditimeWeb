@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,20 +9,21 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
+
 <body>
   <!-- Barra de navegación -->
   <nav class="navbar">
     <div class="container">
       <div class="logo">
-        <a href="/">
+        <a href="/index.html">
           <img src="../assets/img/logo.png" height="150" width="150" alt="">
-       </a>
+        </a>
       </div>
       <ul class="nav-links">
-        <li><a href="/">Inicio</a></li>
-        <li><a href="/pages/recordatorios">Mis Recordatorios</a></li>
-        <li><a href="/pages/calendario">Calendario</a></li>
-        <li><a href="/pages/contacto">Contacto</a></li>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/admin.html" class="active">Panel Admin</a></li>
+        <li><a href="/pages/recordatorios.html">Mis Recordatorios</a></li>
+        <li><a href="#" onclick="logout()">Cerrar Sesión</a></li>
       </ul>
       <div class="menu-toggle">
         <i class="fas fa-bars"></i>
@@ -186,26 +188,26 @@
                 <form id="system-config-form">
                   <div class="config-section">
                     <h4>Configuración General</h4>
-                    
+
                     <div class="form-group">
                       <label for="site-name">Nombre del Sitio</label>
                       <input type="text" id="site-name" name="site-name" value="MEDITIME">
                     </div>
-                    
+
                     <div class="form-group">
                       <label for="contact-email">Email de Contacto</label>
                       <input type="email" id="contact-email" name="contact-email" value="info@meditime.com">
                     </div>
-                    
+
                     <div class="form-group checkbox-group">
                       <input type="checkbox" id="maintenance-mode" name="maintenance-mode">
                       <label for="maintenance-mode">Modo de Mantenimiento</label>
                     </div>
                   </div>
-                  
+
                   <div class="config-section">
                     <h4>Configuración de Notificaciones</h4>
-                    
+
                     <div class="form-group">
                       <label for="notification-frequency">Frecuencia de Notificaciones</label>
                       <select id="notification-frequency" name="notification-frequency">
@@ -214,18 +216,18 @@
                         <option value="daily">Diaria</option>
                       </select>
                     </div>
-                    
+
                     <div class="form-group checkbox-group">
                       <input type="checkbox" id="email-notifications" name="email-notifications" checked>
                       <label for="email-notifications">Notificaciones por Email</label>
                     </div>
-                    
+
                     <div class="form-group checkbox-group">
                       <input type="checkbox" id="browser-notifications" name="browser-notifications" checked>
                       <label for="browser-notifications">Notificaciones del Navegador</label>
                     </div>
                   </div>
-                  
+
                   <div class="form-actions">
                     <button type="button" class="btn btn-secondary" id="reset-config">Restablecer</button>
                     <button type="submit" class="btn btn-primary">Guardar Configuración</button>
@@ -249,12 +251,11 @@
         </div>
         <div class="footer-links">
           <div class="footer-column">
-            <h4>Navegación</h4>
             <ul>
-              <li><a href="/">Inicio</a></li>
-              <li><a href="/pages/recordatorios">Mis Recordatorios</a></li>
-              <li><a href="/pages/calendario">Calendario</a></li>
-              <li><a href="/pages/contacto">Contacto</a></li>
+              <li><a href="/index.html">Inicio</a></li>
+              <li><a href="/pages/recordatorios.html">Mis Recordatorios</a></li>
+              <li><a href="/pages/calendario.html">Calendario</a></li>
+              <li><a href="/pages/contacto.html">Contacto</a></li>
             </ul>
           </div>
           <div class="footer-column">
@@ -294,48 +295,48 @@
           <label for="user-nombre">Nombre</label>
           <input type="text" id="user-nombre" name="nombre" required>
         </div>
-        
+
         <div class="form-group">
           <label for="user-apellidos">Apellidos</label>
           <input type="text" id="user-apellidos" name="apellidos" required>
         </div>
-        
+
         <div class="form-group">
           <label for="user-email">Email</label>
           <input type="email" id="user-email" name="email" required>
         </div>
-        
+
         <div class="form-group">
           <label for="user-telefono">Teléfono</label>
           <input type="tel" id="user-telefono" name="telefono">
         </div>
-        
+
         <div class="form-group">
           <label for="user-fecha-nacimiento">Fecha de Nacimiento</label>
           <input type="date" id="user-fecha-nacimiento" name="fecha_nacimiento" required>
         </div>
-        
+
         <div class="form-group">
           <label for="user-domicilio">Domicilio</label>
           <input type="text" id="user-domicilio" name="domicilio">
         </div>
-        
+
         <div class="form-group">
           <label for="user-password">Contraseña</label>
           <input type="password" id="user-password" name="password">
           <small>Dejar en blanco para mantener la contraseña actual (en caso de edición)</small>
         </div>
-        
+
         <div class="form-group checkbox-group">
           <input type="checkbox" id="user-admin" name="isAdmin">
           <label for="user-admin">Administrador</label>
         </div>
-        
+
         <div class="form-group checkbox-group">
           <input type="checkbox" id="user-notificaciones" name="notificaciones" checked>
           <label for="user-notificaciones">Recibir notificaciones</label>
         </div>
-        
+
         <div class="form-actions">
           <button type="button" class="btn btn-secondary" id="cancel-user-btn">Cancelar</button>
           <button type="submit" class="btn btn-primary">Guardar</button>
@@ -366,4 +367,5 @@
   <script src="../assets/js/script.js"></script>
   <script src="../assets/js/admin.js"></script>
 </body>
+
 </html>

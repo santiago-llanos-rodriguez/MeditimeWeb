@@ -175,10 +175,10 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       // Obtener sesión
       const session = JSON.parse(localStorage.getItem("meditime_session") || "null")
-      if (!session) {
-        window.location.href = "login"
-        return
-      }
+      // if (!session) {
+      //   window.location.href = "login"
+      //   return
+      // }
 
       // Realizar solicitud a la API
       const response = await fetch(`${API_URL}/Usuarios/${session.userId}`, {
@@ -607,7 +607,7 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.removeItem("meditime_session")
 
       // Redirigir a la página de inicio
-      window.location.href = "/"
+      window.location.href = "/index.html"
     } catch (error) {
       console.error("Error al eliminar cuenta:", error)
       alert("Error al eliminar cuenta. Verifique su contraseña e intente nuevamente.")
@@ -637,7 +637,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Cerrar sesión actual
       localStorage.removeItem("meditime_session")
-      window.location.href = "login"
+      window.location.href = "login.html"
     } catch (error) {
       console.error("Error al cerrar sesiones:", error)
       alert("Error al cerrar sesiones. Intente nuevamente.")

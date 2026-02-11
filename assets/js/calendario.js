@@ -5,11 +5,11 @@ let session;
 document.addEventListener("DOMContentLoaded", async () => {
   // Recuperar la sesión desde localStorage
   const sessionData = localStorage.getItem("meditime_session");
-  if (!sessionData) {
-    // Si no hay sesión, redirigir al inicio de sesión
-    window.location.href = "/pages/login";
-    return;
-  }
+  // if (!sessionData) {
+  //   // Si no hay sesión, redirigir al inicio de sesión
+  //   window.location.href = "/pages/login";
+  //   return;
+  // }
 
   // Parsear la sesión
   session = JSON.parse(sessionData);
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Verificar que la sesión tenga los datos necesarios
   if (!session.userId || !session.token) {
     console.error("Sesión inválida:", session);
-    window.location.href = "/pages/login";
+    window.location.href = "/pages/login.html";
     return;
   }
 
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     editarMedicamentoBtn.addEventListener("click", () => {
       closeModal()
       // Aquí iría la lógica para redirigir a la edición del medicamento
-      window.location.href = "recordatorios"
+      window.location.href = "recordatorios.html"
     })
   }
 
@@ -185,12 +185,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   function createDayElement(date, isOtherMonth) {
     const diaElement = document.createElement("div");
     diaElement.className = "dia-calendario";
-  
+
     // Añadir clase para días de otros meses
     if (isOtherMonth) {
       diaElement.classList.add("otro-mes");
     }
-  
+
     // Verificar si es hoy
     const today = new Date();
     if (
@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     ) {
       diaElement.classList.add("hoy");
     }
-  
+
     // Verificar si es el día seleccionado
     if (
       date.getDate() === selectedDate.getDate() &&
@@ -209,38 +209,38 @@ document.addEventListener("DOMContentLoaded", async () => {
     ) {
       diaElement.classList.add("seleccionado");
     }
-  
+
     // Añadir el número del día
     const numeroDia = document.createElement("div");
     numeroDia.className = "numero-dia";
     numeroDia.textContent = date.getDate();
     diaElement.appendChild(numeroDia);
-  
+
     // Añadir contador de medicamentos del día
     const medicamentosDia = getMedicamentosPorDia(date);
     if (medicamentosDia.length > 0) {
       const contadorContainer = document.createElement("div");
       contadorContainer.className = "medicamentos-dia-contador";
-      
+
       const contador = document.createElement("div");
       contador.className = "medicamento-count";
       const texto = medicamentosDia.length === 1 ? "medicamento" : "medicamentos";
       contador.textContent = `${medicamentosDia.length} ${texto}`;
-      
+
       contadorContainer.appendChild(contador);
       diaElement.appendChild(contadorContainer);
     }
-  
+
     // Añadir evento de clic para seleccionar el día
     diaElement.addEventListener("click", () => {
       selectedDate = new Date(date);
       renderDetalleDia();
       highlightSelectedDay();
     });
-  
+
     return diaElement;
   }
-  
+
 
   function highlightSelectedDay() {
     // Quitar la clase 'seleccionado' de todos los días
@@ -573,35 +573,32 @@ document.addEventListener("DOMContentLoaded", async () => {
         <div class="detalle-label">Frecuencia:</div>
         <div class="detalle-valor">${getFrecuenciaTexto(medicamento)}</div>
       </div>
-      ${
-        medicamento.instrucciones
-          ? `
+      ${medicamento.instrucciones
+        ? `
         <div class="detalle-item">
           <div class="detalle-label">Instrucciones:</div>
           <div class="detalle-valor">${medicamento.instrucciones}</div>
         </div>
       `
-          : ""
+        : ""
       }
-      ${
-        medicamento.inicio
-          ? `
+      ${medicamento.inicio
+        ? `
         <div class="detalle-item">
           <div class="detalle-label">Fecha de inicio:</div>
           <div class="detalle-valor">${new Date(medicamento.inicio).toLocaleDateString("es-ES")}</div>
         </div>
       `
-          : ""
+        : ""
       }
-      ${
-        medicamento.fin
-          ? `
+      ${medicamento.fin
+        ? `
         <div class="detalle-item">
           <div class="detalle-label">Fecha de finalización:</div>
           <div class="detalle-valor">${new Date(medicamento.fin).toLocaleDateString("es-ES")}</div>
         </div>
       `
-          : ""
+        : ""
       }
     `
 
@@ -679,13 +676,13 @@ document.addEventListener("DOMContentLoaded", async () => {
           'Authorization': `Bearer ${session.token}`
         }
       });
-  
+
       if (!response.ok) {
         throw new Error('Error al obtener los medicamentos desde la API');
       }
-  
+
       const medicamentosAPI = await response.json();
-  
+
       // Transformar los datos al formato esperado
       medicamentos = medicamentosAPI.map((med) => ({
         id: med.idMedicamentos,
@@ -700,14 +697,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         diasSemana: med.diasSemana || [],
         estado: med.estado || "pendiente",
       }));
-  
+
       console.log("Medicamentos cargados:", medicamentos);
     } catch (error) {
       console.error("Error al cargar medicamentos desde la API:", error);
       medicamentos = []; // Si hay un error, inicializar como un array vacío
     }
   }
-  
+
   function saveMedicamentos() {
     localStorage.setItem("medicamentos", JSON.stringify(medicamentos))
   }

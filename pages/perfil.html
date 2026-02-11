@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,20 +9,21 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="../assets/css/perfil.css">
 </head>
+
 <body>
   <!-- Barra de navegación -->
   <nav class="navbar">
     <div class="container">
       <div class="logo">
-        <a href="/">
+        <a href="/index.html">
           <img src="../assets/img/logo.png" height="150" width="150" alt="">
-       </a>
+        </a>
       </div>
       <ul class="nav-links">
-        <li><a href="/">Inicio</a></li>
-        <li><a href="/pages/recordatorios">Mis Recordatorios</a></li>
-        <li><a href="/pages/calendario">Calendario</a></li>
-        <li><a href="/pages/contacto">Contacto</a></li>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/recordatorios.html">Mis Recordatorios</a></li>
+        <li><a href="/pages/calendario.html">Calendario</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
       </ul>
       <div class="menu-toggle">
         <i class="fas fa-bars"></i>
@@ -93,30 +95,30 @@
                     <label for="nombre">Nombre</label>
                     <input type="text" id="nombre" name="nombre" required>
                   </div>
-                  
+
                   <div class="form-group">
                     <label for="apellidos">Apellidos</label>
                     <input type="text" id="apellidos" name="apellidos" required>
                   </div>
                 </div>
-                
+
                 <div class="form-group">
                   <label for="email">Correo electrónico</label>
                   <input type="email" id="email" name="email" required>
                 </div>
-                
+
                 <div class="form-row">
                   <div class="form-group">
                     <label for="telefono">Teléfono</label>
                     <input type="tel" id="telefono" name="telefono">
                   </div>
-                  
+
                   <div class="form-group">
                     <label for="fecha_nacimiento">Fecha de nacimiento</label>
                     <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
                   </div>
                 </div>
-                
+
                 <div class="form-group">
                   <label for="domicilio">Domicilio</label>
                   <input type="text" id="domicilio" name="domicilio">
@@ -124,7 +126,7 @@
 
                 <div id="datos-error" class="error-message" style="display: none;"></div>
                 <div id="datos-success" class="success-message" style="display: none;"></div>
-                
+
                 <div class="form-actions">
                   <button type="submit" class="btn btn-primary">Guardar Cambios</button>
                 </div>
@@ -140,7 +142,7 @@
 
               <form id="cambiar-password-form" class="perfil-form">
                 <h4>Cambiar Contraseña</h4>
-                
+
                 <div class="form-group">
                   <label for="password-actual">Contraseña actual</label>
                   <div class="input-with-icon">
@@ -150,7 +152,7 @@
                     </button>
                   </div>
                 </div>
-                
+
                 <div class="form-group">
                   <label for="password-nuevo">Nueva contraseña</label>
                   <div class="input-with-icon">
@@ -166,7 +168,7 @@
                     <span class="strength-text">Seguridad de la contraseña</span>
                   </div>
                 </div>
-                
+
                 <div class="form-group">
                   <label for="password-confirmar">Confirmar nueva contraseña</label>
                   <div class="input-with-icon">
@@ -179,7 +181,7 @@
 
                 <div id="password-error" class="error-message" style="display: none;"></div>
                 <div id="password-success" class="success-message" style="display: none;"></div>
-                
+
                 <div class="form-actions">
                   <button type="submit" class="btn btn-primary">Cambiar Contraseña</button>
                 </div>
@@ -187,7 +189,7 @@
 
               <div class="security-options">
                 <h4>Opciones de Seguridad Adicionales</h4>
-                
+
                 <div class="option-card">
                   <div class="option-info">
                     <h5>Verificación en dos pasos</h5>
@@ -197,7 +199,7 @@
                     <button type="button" class="btn btn-secondary" id="setup-2fa-btn">Configurar</button>
                   </div>
                 </div>
-                
+
                 <div class="option-card">
                   <div class="option-info">
                     <h5>Sesiones activas</h5>
@@ -207,7 +209,7 @@
                     <button type="button" class="btn btn-secondary" id="view-sessions-btn">Ver sesiones</button>
                   </div>
                 </div>
-                
+
                 <div class="option-card">
                   <div class="option-info">
                     <h5>Historial de actividad</h5>
@@ -230,7 +232,7 @@
               <form id="notificaciones-form" class="perfil-form">
                 <div class="notification-section">
                   <h4>Recordatorios de Medicamentos</h4>
-                  
+
                   <div class="notification-option">
                     <div class="notification-info">
                       <h5>Notificaciones por correo electrónico</h5>
@@ -243,7 +245,7 @@
                       </label>
                     </div>
                   </div>
-                  
+
                   <div class="notification-option">
                     <div class="notification-info">
                       <h5>Notificaciones del navegador</h5>
@@ -256,7 +258,7 @@
                       </label>
                     </div>
                   </div>
-                  
+
                   <div class="notification-option">
                     <div class="notification-info">
                       <h5>Tiempo de anticipación</h5>
@@ -277,7 +279,7 @@
 
                 <div class="notification-section">
                   <h4>Actualizaciones del Sistema</h4>
-                  
+
                   <div class="notification-option">
                     <div class="notification-info">
                       <h5>Nuevas características</h5>
@@ -290,7 +292,7 @@
                       </label>
                     </div>
                   </div>
-                  
+
                   <div class="notification-option">
                     <div class="notification-info">
                       <h5>Consejos y recomendaciones</h5>
@@ -307,7 +309,7 @@
 
                 <div id="notificaciones-error" class="error-message" style="display: none;"></div>
                 <div id="notificaciones-success" class="success-message" style="display: none;"></div>
-                
+
                 <div class="form-actions">
                   <button type="submit" class="btn btn-primary">Guardar Preferencias</button>
                 </div>
@@ -324,7 +326,7 @@
               <form id="preferencias-form" class="perfil-form">
                 <div class="preference-section">
                   <h4>Apariencia</h4>
-                  
+
                   <div class="preference-option">
                     <div class="preference-info">
                       <h5>Tema</h5>
@@ -338,7 +340,7 @@
                       </select>
                     </div>
                   </div>
-                  
+
                   <div class="preference-option">
                     <div class="preference-info">
                       <h5>Tamaño de texto</h5>
@@ -356,7 +358,7 @@
 
                 <div class="preference-section">
                   <h4>Calendario</h4>
-                  
+
                   <div class="preference-option">
                     <div class="preference-info">
                       <h5>Vista predeterminada</h5>
@@ -370,7 +372,7 @@
                       </select>
                     </div>
                   </div>
-                  
+
                   <div class="preference-option">
                     <div class="preference-info">
                       <h5>Primer día de la semana</h5>
@@ -387,7 +389,7 @@
 
                 <div class="preference-section">
                   <h4>Idioma y Región</h4>
-                  
+
                   <div class="preference-option">
                     <div class="preference-info">
                       <h5>Idioma</h5>
@@ -401,7 +403,7 @@
                       </select>
                     </div>
                   </div>
-                  
+
                   <div class="preference-option">
                     <div class="preference-info">
                       <h5>Formato de hora</h5>
@@ -418,7 +420,7 @@
 
                 <div id="preferencias-error" class="error-message" style="display: none;"></div>
                 <div id="preferencias-success" class="success-message" style="display: none;"></div>
-                
+
                 <div class="form-actions">
                   <button type="submit" class="btn btn-primary">Guardar Preferencias</button>
                 </div>
@@ -434,7 +436,7 @@
 
               <div class="privacy-section">
                 <h4>Gestión de Datos</h4>
-                
+
                 <div class="privacy-card">
                   <div class="privacy-info">
                     <h5>Exportar mis datos</h5>
@@ -444,7 +446,7 @@
                     <button type="button" class="btn btn-secondary" id="export-data-btn">Exportar</button>
                   </div>
                 </div>
-                
+
                 <div class="privacy-card">
                   <div class="privacy-info">
                     <h5>Eliminar mi cuenta</h5>
@@ -458,7 +460,7 @@
 
               <div class="privacy-section">
                 <h4>Cookies y Rastreo</h4>
-                
+
                 <div class="privacy-card">
                   <div class="privacy-info">
                     <h5>Cookies esenciales</h5>
@@ -471,7 +473,7 @@
                     </label>
                   </div>
                 </div>
-                
+
                 <div class="privacy-card">
                   <div class="privacy-info">
                     <h5>Cookies de análisis</h5>
@@ -484,7 +486,7 @@
                     </label>
                   </div>
                 </div>
-                
+
                 <div class="privacy-card">
                   <div class="privacy-info">
                     <h5>Cookies de marketing</h5>
@@ -501,7 +503,7 @@
 
               <div class="privacy-section">
                 <h4>Documentos Legales</h4>
-                
+
                 <div class="document-links">
                   <a href="#" class="document-link">
                     <i class="fas fa-file-alt"></i>
@@ -536,10 +538,10 @@
           <div class="footer-column">
             <h4>Navegación</h4>
             <ul>
-              <li><a href="/">Inicio</a></li>
-              <li><a href="/pages/recordatorios">Mis Recordatorios</a></li>
-              <li><a href="/pages/calendario">Calendario</a></li>
-              <li><a href="/pages/contacto">Contacto</a></li>
+              <li><a href="/index.html">Inicio</a></li>
+              <li><a href="/pages/recordatorios.html">Mis Recordatorios</a></li>
+              <li><a href="/pages/calendario.html">Calendario</a></li>
+              <li><a href="/pages/contacto.html">Contacto</a></li>
             </ul>
           </div>
           <div class="footer-column">
@@ -617,7 +619,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="session-item">
             <div class="session-info">
               <div class="session-device">
@@ -637,7 +639,7 @@
               </button>
             </div>
           </div>
-          
+
           <div class="session-item">
             <div class="session-info">
               <div class="session-device">
@@ -671,4 +673,5 @@
   <script src="../assets/js/script.js"></script>
   <script src="../assets/js/perfil.js"></script>
 </body>
+
 </html>
